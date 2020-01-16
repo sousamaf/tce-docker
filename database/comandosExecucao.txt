@@ -1,0 +1,12 @@
+docker pull postgres
+
+docker pull dpage/pgadmin4
+
+network postgres-compose-network
+
+docker run --name teste-postgres --network=postgres-network -e "POSTGRES_PASSWORD=1" -p 5432:5432 -v $(pwd)/data:/var/lib/postgresql/data -d postgres
+
+docker run -p 80:80 -e 'PGADMIN_DEFAULT_EMAIL=user@unitins.br' -e 'PGADMIN_DEFAULT_PASSWORD=1' -e 'PGADMIN_CONFIG_ENHANCED_COOKIE_PROTECTION=True' -e 'PGADMIN_CONFIG_LOGIN_BANNER="Authorised users only!"' -e 'PGADMIN_CONFIG_CONSOLE_LOG_LEVEL=10' --network=postgres-network --volume $(pwd)/pgadmindata:/pgadmin -d dpage/pgadmin4
+
+
+
