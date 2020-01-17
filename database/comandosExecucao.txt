@@ -2,7 +2,7 @@ docker pull postgres
 
 docker pull dpage/pgadmin4
 
-network postgres-compose-network
+docker network create postgres-network
 
 docker run --name teste-postgres --network=postgres-network -e "POSTGRES_PASSWORD=1" -p 5432:5432 -v $(pwd)/data:/var/lib/postgresql/data -d postgres
 
