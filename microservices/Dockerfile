@@ -13,4 +13,4 @@ EXPOSE 80
 #CMD ["python", "app.py"]
 
 #docker build -t microservice .
-#docker run -it --name service -p 5000:5000 --volume ~/git/tce-infra/microservices/app:/app  microservice /bin/sh
+#docker run -it --name service -p 5000:5000 --volume ~/git/tce-docker/microservices/app:/app  microservice /bin/sh
